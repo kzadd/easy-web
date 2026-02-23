@@ -1,0 +1,11 @@
+packages:
+  - apps/*
+
+onlyBuiltDependencies:
+  - '@module-federation/nextjs-mf'
+  - '@parcel/watcher'
+  - '@swc/core'
+  - esbuild
+  - less
+  - nx
+  - unrs-resolver

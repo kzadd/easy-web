@@ -1,0 +1,46 @@
+# Build
+*.tsbuildinfo
+build/
+dist/
+out-tsc/
+out/
+tmp/
+
+# Caches
+.cache/
+.eslintcache
+.stylelintcache
+.swc/
+
+# Dependencies
+.pnp*
+node_modules/
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Logs
+*-debug.log*
+*-error.log*
+*.log
+
+# Next
+.next/
+next-env.d.ts
+
+# Nx
+.nx/
+
+# OS
+*.swp
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+test-results/
+
+# Vercel
+.vercel

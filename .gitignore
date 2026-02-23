@@ -1,0 +1,77 @@
+# Build
+*.tsbuildinfo
+build/
+dist/
+out-tsc/
+out/
+tmp/
+
+# Caches
+.cache/
+.eslintcache
+.stylelintcache
+.swc/
+
+# Dependencies
+.pnp*
+node_modules/
+
+# Environment
+!.env.example
+.env
+.env.*
+.env.local
+
+# IDEs and editors
+*.esproj
+*.launch
+*.tmproj
+.classpath
+.factorypath
+.idea/
+.project
+.settings/
+
+# Lock files
+!pnpm-lock.yaml
+bun.lockb
+package-lock.json
+yarn.lock
+
+# Logs
+*-debug.log*
+*-error.log*
+*.log
+
+# Monitoring
+newrelic_agent
+
+# Next
+.next/
+next-env.d.ts
+
+# Nx
+.nx/
+
+# OS
+*.swp
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.pem
+/connect.lock
+
+# Testing
+coverage/
+test-results/
+
+# VS Code or Forks
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.vscode/*
+
+# Vercel
+.vercel

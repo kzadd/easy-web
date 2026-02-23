@@ -1,0 +1,86 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "main",
+  "namedInputs": {
+    "default": ["sharedGlobals", "{projectRoot}/**/*"],
+    "production": ["default", "!{projectRoot}/eslint.config.mjs"],
+    "sharedGlobals": [
+      "{workspaceRoot}/.browserslistrc",
+      "{workspaceRoot}/.editorconfig",
+      "{workspaceRoot}/.prettierignore",
+      "{workspaceRoot}/eslint.config.mjs",
+      "{workspaceRoot}/nx.json",
+      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/pnpm-lock.yaml",
+      "{workspaceRoot}/pnpm-workspace.yaml",
+      "{workspaceRoot}/prettier.config.mjs",
+      "{workspaceRoot}/stylelint.config.mjs",
+      "{workspaceRoot}/tsconfig.base.json"
+    ]
+  },
+  "generators": {
+    "@nx/next": {
+      "application": {
+        "appDir": false,
+        "e2eTestRunner": "none",
+        "linter": "eslint",
+        "src": true,
+        "style": "css",
+        "unitTestRunner": "none"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "startTargetName": "start"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ],
+  "targetDefaults": {
+    "format:check": {
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "command": "prettier --check {projectRoot}"
+      }
+    },
+    "format:write": {
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "command": "prettier --write {projectRoot}"
+      }
+    },
+    "lint:styles": {
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "command": "stylelint \"{projectRoot}/**/*.css\""
+      }
+    },
+    "lint:styles:fix": {
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "command": "stylelint \"{projectRoot}/**/*.css\" --fix"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "inputs": ["default", "^production"],
+      "options": {
+        "command": "tsc --noEmit -p {projectRoot}/tsconfig.json"
+      }
+    }
+  }
+}
