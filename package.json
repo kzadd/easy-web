@@ -27,6 +27,7 @@
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",
     "eslint": "9.39.3",
+    "eslint-config-next": "14.2.35",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
@@ -62,6 +63,16 @@
   "license": "MIT",
   "name": "@easy-web/source",
   "packageManager": "pnpm@10.30.1",
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "eslint"
+      ]
+    },
+    "overrides": {
+      "eslint": "9.39.3"
+    }
+  },
   "private": true,
   "scripts": {
     "ci": "nx run-many -t format:check,lint,lint:styles,typecheck --all --parallel=3",
