@@ -14,7 +14,6 @@
       "{workspaceRoot}/pnpm-lock.yaml",
       "{workspaceRoot}/pnpm-workspace.yaml",
       "{workspaceRoot}/prettier.config.mjs",
-      "{workspaceRoot}/stylelint.config.mjs",
       "{workspaceRoot}/tsconfig.base.json"
     ]
   },
@@ -32,41 +31,18 @@
   },
   "plugins": [
     {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
       "plugin": "@nx/next/plugin",
       "options": {
         "buildTargetName": "build",
         "devTargetName": "dev",
         "startTargetName": "start"
       }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
     }
-  ],
-  "targetDefaults": {
-    "lint:styles": {
-      "executor": "nx:run-commands",
-      "inputs": ["default"],
-      "options": {
-        "command": "stylelint \"{projectRoot}/**/*.css\""
-      }
-    },
-    "lint:styles:fix": {
-      "executor": "nx:run-commands",
-      "inputs": ["default"],
-      "options": {
-        "command": "stylelint \"{projectRoot}/**/*.css\" --fix"
-      }
-    },
-    "typecheck": {
-      "executor": "nx:run-commands",
-      "inputs": ["default", "^production"],
-      "options": {
-        "command": "tsc --noEmit -p {projectRoot}/tsconfig.json"
-      }
-    }
-  }
+  ]
 }

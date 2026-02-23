@@ -1,1 +1,3 @@
-pnpm nx affected -t format:check lint --base=main --head=HEAD
+pnpm nx format:check &&
+pnpm eslint "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}" --cache --cache-location .cache/eslint/.eslintcache &&
+pnpm nx affected -t lint

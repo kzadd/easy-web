@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat'
 import next from '@next/eslint-plugin-next'
 import nx from '@nx/eslint-plugin'
 import prettier from 'eslint-config-prettier/flat'
@@ -84,7 +85,7 @@ const importBlock = {
 const nextBlock = {
   files: ['apps/**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
   plugins: {
-    '@next/next': next,
+    '@next/next': fixupPluginRules(next),
   },
   rules: {
     ...next.configs.recommended.rules,
