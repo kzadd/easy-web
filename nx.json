@@ -47,20 +47,6 @@
     }
   ],
   "targetDefaults": {
-    "format:check": {
-      "executor": "nx:run-commands",
-      "inputs": ["default"],
-      "options": {
-        "command": "prettier --check {projectRoot}"
-      }
-    },
-    "format:write": {
-      "executor": "nx:run-commands",
-      "inputs": ["default"],
-      "options": {
-        "command": "prettier --write {projectRoot}"
-      }
-    },
     "lint:styles": {
       "executor": "nx:run-commands",
       "inputs": ["default"],
