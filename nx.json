@@ -1,9 +1,21 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "defaultBase": "main",
   "cacheDirectory": ".cache/nx",
   "cli": {
     "packageManager": "pnpm"
+  },
+  "defaultBase": "main",
+  "generators": {
+    "@nx/next": {
+      "application": {
+        "appDir": false,
+        "e2eTestRunner": "none",
+        "linter": "eslint",
+        "src": true,
+        "style": "css",
+        "unitTestRunner": "none"
+      }
+    }
   },
   "namedInputs": {
     "default": ["sharedGlobals", "{projectRoot}/**/*"],
@@ -18,27 +30,12 @@
       "{workspaceRoot}/.browserslistrc",
       "{workspaceRoot}/.editorconfig",
       "{workspaceRoot}/.prettierignore",
-      "{workspaceRoot}/eslint.config.mjs",
       "{workspaceRoot}/nx.json",
       "{workspaceRoot}/package.json",
       "{workspaceRoot}/pnpm-lock.yaml",
       "{workspaceRoot}/pnpm-workspace.yaml",
-      "{workspaceRoot}/prettier.config.mjs",
-      "{workspaceRoot}/stylelint.config.mjs",
-      "{workspaceRoot}/tsconfig.base.json"
+      "{workspaceRoot}/prettier.config.mjs"
     ]
-  },
-  "generators": {
-    "@nx/next": {
-      "application": {
-        "appDir": false,
-        "e2eTestRunner": "none",
-        "linter": "eslint",
-        "src": true,
-        "style": "css",
-        "unitTestRunner": "none"
-      }
-    }
   },
   "plugins": [
     {
@@ -60,14 +57,47 @@
     }
   ],
   "targetDefaults": {
-    "build": {},
-    "build-deps": {},
-    "dev": {},
-    "lint": {},
-    "lint:styles": {},
-    "serve-static": {},
-    "start": {},
-    "typecheck": {},
-    "watch-deps": {}
+    "dev": {
+      "options": {
+        "env": {
+          "NEXT_PRIVATE_LOCAL_WEBPACK": "true"
+        }
+      }
+    },
+    "lint:styles": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/stylelint.config.mjs",
+        "{projectRoot}/stylelint.config.mjs",
+        {
+          "externalDependencies": ["stylelint"]
+        }
+      ],
+      "options": {
+        "command": "stylelint \"**/*.css\"",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "typecheck": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": [
+        "default",
+        "^default",
+        "{projectRoot}/*.d.ts",
+        "{projectRoot}/tsconfig.json",
+        "{workspaceRoot}/tsconfig.base.json",
+        {
+          "externalDependencies": ["typescript"]
+        }
+      ],
+      "options": {
+        "command": "tsc -p tsconfig.json --noEmit",
+        "cwd": "{projectRoot}"
+      }
+    }
   }
 }

@@ -18,16 +18,20 @@ const compat = new FlatCompat({
 
 const globalIgnores = {
   ignores: [
+    '**/*.log',
     '**/*.tsbuildinfo',
     '**/.cache/**',
     '**/.next/**',
     '**/.nx/**',
     '**/.swc/**',
+    '**/.vercel/**',
     '**/build/**',
     '**/coverage/**',
     '**/dist/**',
     '**/node_modules/**',
+    '**/out-tsc/**',
     '**/out/**',
+    '**/test-results/**',
     '**/tmp/**',
   ],
 }
@@ -136,7 +140,10 @@ const nxBoundariesBlock = {
     '@nx/enforce-module-boundaries': [
       'error',
       {
-        allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
+        allow: [
+          '^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$',
+          '^.*/stylelint(\\.base)?\\.config\\.[cm]?[jt]s$',
+        ],
         depConstraints: [
           {
             onlyDependOnLibsWithTags: ['*'],

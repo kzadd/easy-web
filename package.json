@@ -84,14 +84,13 @@
     "lint:styles": "nx run-many -t lint:styles",
     "lint:styles:affected": "nx affected -t lint:styles",
     "lint:styles:fix": "nx run-many -t lint:styles --fix",
-    "typecheck": "nx run-many -t typecheck",
-    "typecheck:affected": "nx affected -t typecheck",
     "lint:workspace": "eslint \"*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\" --cache --cache-location .cache/eslint/.eslintcache",
     "lint:workspace:fix": "eslint \"*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\" --fix --cache --cache-location .cache/eslint/.eslintcache",
     "preinstall": "npx -y only-allow pnpm",
     "prepare": "husky",
     "reset": "nx reset",
-    "validate": "pnpm preinstall && pnpm prepare && pnpm reset && pnpm format:check && pnpm format && pnpm lint:workspace && pnpm lint:workspace:fix && pnpm lint:affected && pnpm lint && pnpm lint:fix && pnpm lint:styles:affected && pnpm lint:styles && pnpm lint:styles:fix && pnpm typecheck:affected && pnpm typecheck"
+    "typecheck": "nx run-many -t typecheck",
+    "typecheck:affected": "nx affected -t typecheck"
   },
   "version": "1.0.0"
 }

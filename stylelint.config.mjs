@@ -2,8 +2,8 @@
 const stylelintConfig = {
   extends: ['stylelint-config-standard'],
   ignoreFiles: [
+    '**/.cache/**',
     '**/.next/**',
-    '**/.nx/**',
     '**/build/**',
     '**/coverage/**',
     '**/dist/**',
