@@ -90,7 +90,7 @@ const nextBlock = [
   ...fixupConfigRules(compat.extends('next/core-web-vitals')),
 ].map((config) => ({
   ...config,
-  files: ['apps/**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+  files: ['apps/**/*.{js,jsx,ts,tsx}'],
   rules: {
     ...config.rules,
     'react/jsx-boolean-value': ['warn', 'never'],
