@@ -57,6 +57,13 @@
     }
   ],
   "targetDefaults": {
+    "build": {
+      "options": {
+        "env": {
+          "NEXT_PRIVATE_LOCAL_WEBPACK": "true"
+        }
+      }
+    },
     "dev": {
       "options": {
         "env": {

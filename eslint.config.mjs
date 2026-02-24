@@ -57,15 +57,6 @@ const customBlock = {
     'no-use-before-define': 'error',
     'object-shorthand': ['warn', 'always'],
     'prefer-template': 'warn',
-    'sort-keys': [
-      'warn',
-      'asc',
-      {
-        caseSensitive: false,
-        minKeys: 2,
-        natural: true,
-      },
-    ],
   },
 }
 
@@ -84,8 +75,7 @@ const importBlock = {
         groups: [
           ['^\\u0000'],
           ['^node:'],
-          ['^react$', '^react/', '^next$', '^next/'],
-          ['^@?(?!easy-web)\\w'],
+          ['^react$', '^react/', '^next$', '^next/', '^@?(?!easy-web)\\w'],
           ['^@easy-web/'],
           ['^\\.'],
           ['^.+\\.css$'],

@@ -76,6 +76,7 @@
   },
   "private": true,
   "scripts": {
+    "ci": "pnpm nx format:check && pnpm eslint \"*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\" --cache --cache-location .cache/eslint/.eslintcache && pnpm nx affected -t lint lint:styles typecheck build",
     "format": "nx format:write",
     "format:check": "nx format:check",
     "lint": "nx run-many -t lint",
