@@ -8,7 +8,6 @@ tmp/
 
 # Caches
 .cache/
-.eslintcache
 .swc/
 
 # Dependencies

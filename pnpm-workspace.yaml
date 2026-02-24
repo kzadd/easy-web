@@ -1,5 +1,8 @@
+autoInstallPeers: true
+
 packages:
   - apps/*
+  - libs/*
 
 onlyBuiltDependencies:
   - '@module-federation/nextjs-mf'

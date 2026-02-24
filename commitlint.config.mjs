@@ -1,6 +1,18 @@
+import { readdirSync } from 'fs'
+
+const getDirectories = (source) => {
+  try {
+    return readdirSync(source, { withFileTypes: true })
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name)
+  } catch {
+    return []
+  }
+}
+
 const scopes = {
-  apps: ['home', 'host'],
-  libs: [],
+  apps: getDirectories('./apps'),
+  libs: getDirectories('./libs'),
   workspace: ['ci', 'config', 'deps', 'root'],
 }
 

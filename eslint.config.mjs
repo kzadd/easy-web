@@ -1,11 +1,20 @@
-import { fixupPluginRules } from '@eslint/compat'
-import next from '@next/eslint-plugin-next'
+import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
+import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
 import nx from '@nx/eslint-plugin'
 import prettier from 'eslint-config-prettier/flat'
 import importPlugin from 'eslint-plugin-import'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+})
 
 const globalIgnores = {
   ignores: [
@@ -59,7 +68,7 @@ const customBlock = {
 const importBlock = {
   files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
   plugins: {
-    import: importPlugin,
+    import: fixupPluginRules(importPlugin),
     'simple-import-sort': simpleImportSort,
   },
   rules: {
@@ -82,43 +91,14 @@ const importBlock = {
   },
 }
 
-const nextBlock = {
+const nextBlock = [
+  ...fixupConfigRules(compat.extends('next')),
+  ...fixupConfigRules(compat.extends('next/core-web-vitals')),
+].map((config) => ({
+  ...config,
   files: ['apps/**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
-  plugins: {
-    '@next/next': fixupPluginRules(next),
-  },
   rules: {
-    ...next.configs.recommended.rules,
-    ...next.configs['core-web-vitals'].rules,
-  },
-}
-
-const nxBoundariesBlock = {
-  files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
-  rules: {
-    '@nx/enforce-module-boundaries': [
-      'error',
-      {
-        allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
-        depConstraints: [
-          {
-            onlyDependOnLibsWithTags: ['*'],
-            sourceTag: '*',
-          },
-        ],
-        enforceBuildableLibDependency: true,
-      },
-    ],
-  },
-}
-
-const reactBlock = {
-  files: ['**/*.{jsx,tsx}'],
-  plugins: {
-    react,
-    'react-hooks': reactHooks,
-  },
-  rules: {
+    ...config.rules,
     'react/jsx-boolean-value': ['warn', 'never'],
     'react/jsx-curly-brace-presence': [
       'warn',
@@ -148,10 +128,24 @@ const reactBlock = {
     'react-hooks/exhaustive-deps': 'error',
     'react-hooks/rules-of-hooks': 'warn',
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
+}))
+
+const nxBoundariesBlock = {
+  files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+  rules: {
+    '@nx/enforce-module-boundaries': [
+      'error',
+      {
+        allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
+        depConstraints: [
+          {
+            onlyDependOnLibsWithTags: ['*'],
+            sourceTag: '*',
+          },
+        ],
+        enforceBuildableLibDependency: true,
+      },
+    ],
   },
 }
 
@@ -189,11 +183,10 @@ const eslintConfig = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/javascript'],
   ...nx.configs['flat/typescript'],
+  ...nextBlock,
+  typescriptBlock,
   importBlock,
   nxBoundariesBlock,
-  nextBlock,
-  typescriptBlock,
-  reactBlock,
   customBlock,
   prettier,
 ]

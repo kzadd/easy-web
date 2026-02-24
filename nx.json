@@ -1,9 +1,19 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "main",
+  "cacheDirectory": ".cache/nx",
+  "cli": {
+    "packageManager": "pnpm"
+  },
   "namedInputs": {
     "default": ["sharedGlobals", "{projectRoot}/**/*"],
-    "production": ["default", "!{projectRoot}/eslint.config.mjs"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.md",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)",
+      "!{projectRoot}/eslint.config.mjs",
+      "!{projectRoot}/stylelint.config.mjs"
+    ],
     "sharedGlobals": [
       "{workspaceRoot}/.browserslistrc",
       "{workspaceRoot}/.editorconfig",
@@ -14,6 +24,7 @@
       "{workspaceRoot}/pnpm-lock.yaml",
       "{workspaceRoot}/pnpm-workspace.yaml",
       "{workspaceRoot}/prettier.config.mjs",
+      "{workspaceRoot}/stylelint.config.mjs",
       "{workspaceRoot}/tsconfig.base.json"
     ]
   },
@@ -39,10 +50,24 @@
     {
       "plugin": "@nx/next/plugin",
       "options": {
+        "buildDepsTargetName": "build-deps",
         "buildTargetName": "build",
         "devTargetName": "dev",
-        "startTargetName": "start"
+        "serveStaticTargetName": "serve-static",
+        "startTargetName": "start",
+        "watchDepsTargetName": "watch-deps"
       }
     }
-  ]
+  ],
+  "targetDefaults": {
+    "build": {},
+    "build-deps": {},
+    "dev": {},
+    "lint": {},
+    "lint:styles": {},
+    "serve-static": {},
+    "start": {},
+    "typecheck": {},
+    "watch-deps": {}
+  }
 }
