@@ -132,6 +132,7 @@ const nxBoundariesBlock = {
       {
         allow: [
           '^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$',
+          '^.*/postcss(\\.base)?\\.config\\.[cm]?[jt]s$',
           '^.*/stylelint(\\.base)?\\.config\\.[cm]?[jt]s$',
         ],
         depConstraints: [
@@ -174,7 +175,9 @@ const typescriptBlock = {
   },
 }
 
-/** @type {import('eslint').Linter.Config[]} */
+/**
+ * @type {import('eslint').Linter.Config[]}
+ */
 const eslintConfig = [
   globalIgnores,
   ...nx.configs['flat/base'],

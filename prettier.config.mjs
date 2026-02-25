@@ -1,4 +1,6 @@
-/** @type {import("prettier").Config} */
+/**
+ * @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions}
+ */
 const prettierConfig = {
   arrowParens: 'always',
   bracketSameLine: false,

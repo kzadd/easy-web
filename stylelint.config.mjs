@@ -1,4 +1,6 @@
-/** @type {import('stylelint').Config} */
+/**
+ * @type {import('stylelint').Config}
+ */
 const stylelintConfig = {
   extends: ['stylelint-config-standard'],
   ignoreFiles: [
@@ -17,6 +19,7 @@ const stylelintConfig = {
       {
         ignoreAtRules: [
           'apply',
+          'config',
           'layer',
           'responsive',
           'screen',
@@ -26,6 +29,18 @@ const stylelintConfig = {
           'utility',
           'variants',
         ],
+      },
+    ],
+    'function-no-unknown': [
+      true,
+      {
+        ignoreFunctions: ['theme'],
+      },
+    ],
+    'import-notation': [
+      'string',
+      {
+        ignoreImportLocations: ['tailwindcss'],
       },
     ],
     'no-descending-specificity': null,
@@ -72,12 +87,7 @@ const stylelintConfig = {
         unspecified: 'bottomAlphabetical',
       },
     ],
-    'selector-class-pattern': [
-      '^[a-z][a-zA-Z0-9]*$|^[a-z][a-z0-9-_]*[a-z0-9]$',
-      {
-        message: 'Use camelCase or kebab-case for CSS class names (CSS Modules compatible)',
-      },
-    ],
+    'selector-class-pattern': null,
     'selector-pseudo-class-no-unknown': [
       true,
       {

@@ -20,7 +20,9 @@ const allScopes = Object.entries(scopes).flatMap(([group, items]) =>
   items.map((scope) => `${group}:${scope}`),
 )
 
-/** @type {import('@commitlint/types').UserConfig} */
+/**
+ * @type {import('@commitlint/types').UserConfig}
+ */
 const commitlintConfig = {
   extends: ['@commitlint/config-conventional'],
   rules: {
