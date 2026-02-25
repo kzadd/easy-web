@@ -136,7 +136,7 @@ const nxBoundariesBlock = {
           '^.*/eslint.config\\.m?[jt]s$',
           '^.*/postcss.config\\.m?[jt]s$',
           '^.*/stylelint.config\\.m?[jt]s$',
-          '^.*/vitest.config\\.m?[jt]s$',
+          '^.*/vitest.base\\.m?[jt]s$',
         ],
         depConstraints: [
           {

@@ -26,7 +26,7 @@
       "!{projectRoot}/eslint.config.m?[jt]s",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/vitest.setup.m?[jt]s",
-      "!{projectRoot}/vitest.config.m?[jt]s"
+      "!{projectRoot}/vitest.base.m?[jt]s"
     ],
     "sharedGlobals": [
       "{workspaceRoot}/.browserslistrc",
@@ -41,7 +41,7 @@
       "{workspaceRoot}/prettier.config.m?[jt]s",
       "{workspaceRoot}/stylelint.config.m?[jt]s",
       "{workspaceRoot}/tsconfig.config.json",
-      "{workspaceRoot}/vitest.config.m?[jt]s",
+      "{workspaceRoot}/vitest.base.m?[jt]s",
       "{workspaceRoot}/vitest.setup.m?[jt]s",
       "{workspaceRoot}/vitest.workspace.m?[jt]s"
     ]
