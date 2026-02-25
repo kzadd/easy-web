@@ -135,9 +135,9 @@ const nxBoundariesBlock = {
       'error',
       {
         allow: [
-          '^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$',
-          '^.*/postcss(\\.base)?\\.config\\.[cm]?[jt]s$',
-          '^.*/stylelint(\\.base)?\\.config\\.[cm]?[jt]s$',
+          '^.*/eslint(\\.base)?\\.config\\.m?[jt]s$',
+          '^.*/postcss(\\.base)?\\.config\\.m?[jt]s$',
+          '^.*/stylelint(\\.base)?\\.config\\.m?[jt]s$',
         ],
         depConstraints: [
           {
