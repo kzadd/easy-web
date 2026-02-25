@@ -38,6 +38,7 @@
     "out",
     "out-tsc",
     "test-results",
-    "tmp"
+    "tmp",
+    "vitest.config.*.timestamp*"
   ]
 }

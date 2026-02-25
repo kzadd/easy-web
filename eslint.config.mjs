@@ -36,6 +36,7 @@ const globalIgnores = {
     '**/out/**',
     '**/test-results/**',
     '**/tmp/**',
+    '**/vitest.config.*.timestamp*',
   ],
 }
 

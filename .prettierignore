@@ -42,6 +42,7 @@ __snapshots__/
 coverage/
 html/
 test-results/
+vitest.config.*.timestamp*
 
 # Vercel
 .vercel

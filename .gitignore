@@ -66,6 +66,7 @@ __snapshots__/
 coverage/
 html/
 test-results/
+vitest.config.*.timestamp*
 
 # VS Code or Forks
 !.vscode/extensions.json
