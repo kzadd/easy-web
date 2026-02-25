@@ -41,7 +41,7 @@ const globalIgnores = {
 }
 
 const customBlock = {
-  files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+  files: ['**/*.{js,jsx,mjs,mts,ts,tsx}'],
   rules: {
     'block-scoped-var': 'error',
     'default-case': 'error',
@@ -65,7 +65,7 @@ const customBlock = {
 }
 
 const importBlock = {
-  files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+  files: ['**/*.{js,jsx,mjs,mts,ts,tsx}'],
   plugins: {
     import: fixupPluginRules(importPlugin),
     'simple-import-sort': simpleImportSort,
@@ -129,7 +129,7 @@ const nextBlock = [
 }))
 
 const nxBoundariesBlock = {
-  files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+  files: ['**/*.{js,jsx,mjs,mts,ts,tsx}'],
   rules: {
     '@nx/enforce-module-boundaries': [
       'error',
@@ -152,7 +152,7 @@ const nxBoundariesBlock = {
 }
 
 const typescriptBlock = {
-  files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+  files: ['**/*.{js,jsx,mjs,mts,ts,tsx}'],
   rules: {
     '@typescript-eslint/consistent-type-imports': [
       'error',
