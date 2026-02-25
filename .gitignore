@@ -15,10 +15,10 @@ tmp/
 node_modules/
 
 # Environment
-!.env.example
 .env
 .env.*
 .env.local
+!.env.example
 
 # IDEs and editors
 *.esproj
@@ -31,10 +31,10 @@ node_modules/
 .settings/
 
 # Lock files
-!pnpm-lock.yaml
 bun.lockb
 package-lock.json
 yarn.lock
+!pnpm-lock.yaml
 
 # Logs
 *-debug.log*
@@ -62,18 +62,15 @@ Thumbs.db
 
 # Testing
 .vitest/
-__snapshots__/
 coverage/
-html/
-test-results/
 vitest.config.*.timestamp*
 
 # VS Code or Forks
+.vscode/*
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/settings.json
 !.vscode/tasks.json
-.vscode/*
 
 # Vercel
 .vercel

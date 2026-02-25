@@ -38,10 +38,7 @@ Thumbs.db
 
 # Testing
 .vitest/
-__snapshots__/
 coverage/
-html/
-test-results/
 vitest.config.*.timestamp*
 
 # Vercel

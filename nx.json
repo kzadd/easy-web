@@ -22,20 +22,28 @@
     "production": [
       "default",
       "!{projectRoot}/**/*.md",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)",
-      "!{projectRoot}/eslint.config.mjs",
-      "!{projectRoot}/stylelint.config.mjs"
+      "!{projectRoot}/**/?(*.)+(spec|test).m?[jt]s?(x)?(.snap)",
+      "!{projectRoot}/eslint.config.m?[jt]s",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/vitest.setup.m?[jt]s",
+      "!{projectRoot}/vitest.config.m?[jt]s"
     ],
     "sharedGlobals": [
       "{workspaceRoot}/.browserslistrc",
       "{workspaceRoot}/.editorconfig",
       "{workspaceRoot}/.prettierignore",
+      "{workspaceRoot}/eslint.config.m?[jt]s",
       "{workspaceRoot}/nx.json",
       "{workspaceRoot}/package.json",
       "{workspaceRoot}/pnpm-lock.yaml",
       "{workspaceRoot}/pnpm-workspace.yaml",
-      "{workspaceRoot}/postcss.config.mjs",
-      "{workspaceRoot}/prettier.config.mjs"
+      "{workspaceRoot}/postcss.config.m?[jt]s",
+      "{workspaceRoot}/prettier.config.m?[jt]s",
+      "{workspaceRoot}/stylelint.config.m?[jt]s",
+      "{workspaceRoot}/tsconfig.config.json",
+      "{workspaceRoot}/vitest.config.m?[jt]s",
+      "{workspaceRoot}/vitest.setup.m?[jt]s",
+      "{workspaceRoot}/vitest.workspace.m?[jt]s"
     ]
   },
   "plugins": [
@@ -48,12 +56,15 @@
     {
       "plugin": "@nx/next/plugin",
       "options": {
-        "buildDepsTargetName": "build-deps",
         "buildTargetName": "build",
         "devTargetName": "dev",
-        "serveStaticTargetName": "serve-static",
-        "startTargetName": "start",
-        "watchDepsTargetName": "watch-deps"
+        "startTargetName": "start"
+      }
+    },
+    {
+      "plugin": "@nx/vitest",
+      "options": {
+        "testTargetName": "test"
       }
     }
   ],
@@ -78,8 +89,7 @@
       "inputs": [
         "default",
         "^default",
-        "{workspaceRoot}/stylelint.config.mjs",
-        "{projectRoot}/stylelint.config.mjs",
+        "{projectRoot}/stylelint.config.m?[jt]s",
         {
           "externalDependencies": ["stylelint"]
         }
@@ -97,7 +107,6 @@
         "^default",
         "{projectRoot}/*.d.ts",
         "{projectRoot}/tsconfig.json",
-        "{workspaceRoot}/tsconfig.base.json",
         {
           "externalDependencies": ["typescript"]
         }

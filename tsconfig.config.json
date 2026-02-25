@@ -23,22 +23,21 @@
   "exclude": [
     "**/*.log",
     "**/*.tsbuildinfo",
-    "**/__snapshots__",
     ".cache",
     ".next",
     ".nx",
     ".swc",
     ".vercel",
     ".vitest",
+    "@testing-library/jest-dom",
     "build",
     "coverage",
     "dist",
-    "html",
     "node_modules",
     "out",
     "out-tsc",
-    "test-results",
     "tmp",
-    "vitest.config.*.timestamp*"
+    "vitest.config.*.timestamp*",
+    "vitest/globals"
   ]
 }

@@ -1,3 +1,6 @@
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
@@ -5,8 +8,6 @@ import nx from '@nx/eslint-plugin'
 import prettier from 'eslint-config-prettier/flat'
 import importPlugin from 'eslint-plugin-import'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -26,15 +27,12 @@ const globalIgnores = {
     '**/.swc/**',
     '**/.vercel/**',
     '**/.vitest/**',
-    '**/__snapshots__/**',
     '**/build/**',
     '**/coverage/**',
     '**/dist/**',
-    '**/html/**',
     '**/node_modules/**',
     '**/out-tsc/**',
     '**/out/**',
-    '**/test-results/**',
     '**/tmp/**',
     '**/vitest.config.*.timestamp*',
   ],
@@ -89,12 +87,12 @@ const importBlock = {
   },
 }
 
-const nextBlock = [
+const nextReactBlock = [
   ...fixupConfigRules(compat.extends('next')),
   ...fixupConfigRules(compat.extends('next/core-web-vitals')),
 ].map((config) => ({
   ...config,
-  files: ['apps/**/*.{js,jsx,ts,tsx}'],
+  files: ['**/*.{js,jsx,ts,tsx}'],
   rules: {
     ...config.rules,
     'react/jsx-boolean-value': ['warn', 'never'],
@@ -135,9 +133,10 @@ const nxBoundariesBlock = {
       'error',
       {
         allow: [
-          '^.*/eslint(\\.base)?\\.config\\.m?[jt]s$',
-          '^.*/postcss(\\.base)?\\.config\\.m?[jt]s$',
-          '^.*/stylelint(\\.base)?\\.config\\.m?[jt]s$',
+          '^.*/eslint.config\\.m?[jt]s$',
+          '^.*/postcss.config\\.m?[jt]s$',
+          '^.*/stylelint.config\\.m?[jt]s$',
+          '^.*/vitest.config\\.m?[jt]s$',
         ],
         depConstraints: [
           {
@@ -187,7 +186,7 @@ const eslintConfig = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/javascript'],
   ...nx.configs['flat/typescript'],
-  ...nextBlock,
+  ...nextReactBlock,
   typescriptBlock,
   importBlock,
   nxBoundariesBlock,
