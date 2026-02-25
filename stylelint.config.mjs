@@ -6,11 +6,16 @@ const stylelintConfig = {
   ignoreFiles: [
     '**/.cache/**',
     '**/.next/**',
+    '**/.nx/**',
+    '**/.vitest/**',
     '**/build/**',
     '**/coverage/**',
     '**/dist/**',
+    '**/html/**',
     '**/node_modules/**',
     '**/out/**',
+    '**/test-results/**',
+    '**/tmp/**',
   ],
   plugins: ['stylelint-order'],
   rules: {

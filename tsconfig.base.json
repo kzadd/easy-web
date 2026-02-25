@@ -11,7 +11,6 @@
     "moduleResolution": "bundler",
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "paths": {},
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipDefaultLibCheck": true,
@@ -22,15 +21,23 @@
     "verbatimModuleSyntax": true
   },
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts",
+    "**/*.log",
+    "**/*.tsbuildinfo",
+    "**/__snapshots__",
+    ".cache",
     ".next",
     ".nx",
+    ".swc",
+    ".vercel",
+    ".vitest",
     "build",
     "coverage",
     "dist",
+    "html",
     "node_modules",
     "out",
+    "out-tsc",
+    "test-results",
     "tmp"
   ]
 }

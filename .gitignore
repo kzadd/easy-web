@@ -61,7 +61,10 @@ Thumbs.db
 /connect.lock
 
 # Testing
+.vitest/
+__snapshots__/
 coverage/
+html/
 test-results/
 
 # VS Code or Forks

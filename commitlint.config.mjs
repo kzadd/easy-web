@@ -2,7 +2,9 @@ import { readdirSync } from 'fs'
 
 const getDirectories = (source) => {
   try {
-    return readdirSync(source, { withFileTypes: true })
+    return readdirSync(source, {
+      withFileTypes: true,
+    })
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name)
   } catch {
