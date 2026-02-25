@@ -113,6 +113,8 @@
     "test:all": "nx run-many -t test",
     "test:coverage": "nx affected -t test --coverage",
     "test:all:coverage": "nx run-many -t test --coverage",
+    "test:ui": "nx affected -t test --ui --watch",
+    "test:all:ui": "nx run-many -t test --ui --watch",
     "test:watch": "nx affected -t test --watch",
     "test:all:watch": "nx run-many -t test --watch",
     "typecheck": "nx affected -t typecheck",

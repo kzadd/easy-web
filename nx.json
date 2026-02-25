@@ -99,6 +99,11 @@
         "cwd": "{projectRoot}"
       }
     },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    },
     "typecheck": {
       "cache": true,
       "executor": "nx:run-commands",
