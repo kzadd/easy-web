@@ -34,6 +34,7 @@
       "{workspaceRoot}/package.json",
       "{workspaceRoot}/pnpm-lock.yaml",
       "{workspaceRoot}/pnpm-workspace.yaml",
+      "{workspaceRoot}/postcss.config.mjs",
       "{workspaceRoot}/prettier.config.mjs"
     ]
   },
