@@ -55,6 +55,7 @@ const customBlock = {
     'no-dupe-keys': 'error',
     'no-duplicate-imports': 'error',
     'no-lonely-if': 'error',
+    'no-undef': 'error',
     'no-unreachable': 'error',
     'no-use-before-define': 'error',
     'object-shorthand': ['warn', 'always'],

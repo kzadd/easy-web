@@ -1,13 +1,11 @@
-import { readdirSync } from 'fs'
+import { existsSync, readdirSync } from 'fs'
 
 const getDirectories = (source) => {
-  try {
-    return readdirSync(source, { withFileTypes: true })
-      .filter((dirent) => dirent.isDirectory())
-      .map((dirent) => dirent.name)
-  } catch {
-    return []
-  }
+  if (!existsSync(source)) return []
+
+  return readdirSync(source, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory() && !dirent.name.startsWith('.'))
+    .map((dirent) => dirent.name)
 }
 
 const scopes = {
@@ -16,8 +14,8 @@ const scopes = {
   workspace: ['ci', 'config', 'deps', 'root'],
 }
 
-const allScopes = Object.entries(scopes).flatMap(([group, items]) =>
-  items.map((scope) => `${group}:${scope}`),
+const allScopes = Object.entries(scopes).flatMap(([group, scopes]) =>
+  scopes.map((scope) => `${group}:${scope}`),
 )
 
 /**

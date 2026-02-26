@@ -11,7 +11,6 @@ tmp/
 .swc/
 
 # Dependencies
-.pnp*
 node_modules/
 
 # Environment
@@ -19,16 +18,6 @@ node_modules/
 .env.*
 .env.local
 !.env.example
-
-# IDEs and editors
-*.esproj
-*.launch
-*.tmproj
-.classpath
-.factorypath
-.idea/
-.project
-.settings/
 
 # Lock files
 bun.lockb
@@ -40,9 +29,7 @@ yarn.lock
 *-debug.log*
 *-error.log*
 *.log
-
-# Monitoring
-newrelic_agent
+logs/
 
 # Next
 .next/

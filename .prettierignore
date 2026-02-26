@@ -11,10 +11,10 @@ tmp/
 .swc/
 
 # Dependencies
-.pnp*
 node_modules/
 
 # Lock files
+bun.lockb
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
@@ -23,6 +23,7 @@ yarn.lock
 *-debug.log*
 *-error.log*
 *.log
+logs/
 
 # Next
 .next/

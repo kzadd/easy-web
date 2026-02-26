@@ -73,7 +73,7 @@
         "{workspaceRoot}/prettier.config.mjs"
       ]
     },
-    "lint:styles": {
+    "stylelint": {
       "cache": true,
       "executor": "nx:run-commands",
       "inputs": [
