@@ -1,6 +1,5 @@
-const vitestWorkspace = [
-  'apps/*/vitest.config.{js,mjs,mts,ts}',
-  'libs/*/vitest.config.{js,mjs,mts,ts}',
-]
+import { defineWorkspace } from 'vitest/config'
+
+const vitestWorkspace = defineWorkspace(['apps/*/vitest.config.mjs', 'libs/*/vitest.config.mjs'])
 
 export default vitestWorkspace

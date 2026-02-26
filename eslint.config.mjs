@@ -59,6 +59,15 @@ const customBlock = {
     'no-use-before-define': 'error',
     'object-shorthand': ['warn', 'always'],
     'prefer-template': 'warn',
+    'sort-keys': [
+      'warn',
+      'asc',
+      {
+        caseSensitive: false,
+        minKeys: 2,
+        natural: true,
+      },
+    ],
   },
 }
 
@@ -178,9 +187,6 @@ const typescriptBlock = {
   },
 }
 
-/**
- * @type {import('eslint').Linter.Config[]}
- */
 const eslintConfig = [
   globalIgnores,
   ...nx.configs['flat/base'],
