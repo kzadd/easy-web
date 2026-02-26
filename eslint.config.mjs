@@ -133,10 +133,10 @@ const nxBoundariesBlock = {
       'error',
       {
         allow: [
-          '^.*/eslint.config\\.m?[jt]s$',
-          '^.*/postcss.config\\.m?[jt]s$',
-          '^.*/stylelint.config\\.m?[jt]s$',
-          '^.*/vitest.base\\.m?[jt]s$',
+          'eslint.config.mjs',
+          'postcss.config.mjs',
+          'stylelint.config.mjs',
+          'vitest.base.mjs',
         ],
         depConstraints: [
           {

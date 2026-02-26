@@ -18,32 +18,25 @@
     }
   },
   "namedInputs": {
-    "default": ["sharedGlobals", "{projectRoot}/**/*"],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/**/*.md",
       "!{projectRoot}/**/?(*.)+(spec|test).m?[jt]s?(x)?(.snap)",
-      "!{projectRoot}/eslint.config.m?[jt]s",
+      "!{projectRoot}/.prettierignore",
+      "!{projectRoot}/eslint.config.mjs",
+      "!{projectRoot}/prettier.config.mjs",
+      "!{projectRoot}/stylelint.config.mjs",
       "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/vitest.setup.m?[jt]s",
-      "!{projectRoot}/vitest.base.m?[jt]s"
+      "!{projectRoot}/vitest.base.mjs",
+      "!{projectRoot}/vitest.setup.mjs"
     ],
     "sharedGlobals": [
       "{workspaceRoot}/.browserslistrc",
       "{workspaceRoot}/.editorconfig",
-      "{workspaceRoot}/.prettierignore",
-      "{workspaceRoot}/eslint.config.m?[jt]s",
       "{workspaceRoot}/nx.json",
-      "{workspaceRoot}/package.json",
       "{workspaceRoot}/pnpm-lock.yaml",
-      "{workspaceRoot}/pnpm-workspace.yaml",
-      "{workspaceRoot}/postcss.config.m?[jt]s",
-      "{workspaceRoot}/prettier.config.m?[jt]s",
-      "{workspaceRoot}/stylelint.config.m?[jt]s",
-      "{workspaceRoot}/tsconfig.config.json",
-      "{workspaceRoot}/vitest.base.m?[jt]s",
-      "{workspaceRoot}/vitest.setup.m?[jt]s",
-      "{workspaceRoot}/vitest.workspace.m?[jt]s"
+      "{workspaceRoot}/pnpm-workspace.yaml"
     ]
   },
   "plugins": [
@@ -69,19 +62,16 @@
     }
   ],
   "targetDefaults": {
-    "build": {
-      "options": {
-        "env": {
-          "NEXT_PRIVATE_LOCAL_WEBPACK": "true"
-        }
-      }
-    },
-    "dev": {
-      "options": {
-        "env": {
-          "NEXT_PRIVATE_LOCAL_WEBPACK": "true"
-        }
-      }
+    "lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default",
+        "{projectRoot}/eslint.config.mjs",
+        "{workspaceRoot}/.prettierignore",
+        "{workspaceRoot}/eslint.config.mjs",
+        "{workspaceRoot}/prettier.config.mjs"
+      ]
     },
     "lint:styles": {
       "cache": true,
@@ -89,7 +79,10 @@
       "inputs": [
         "default",
         "^default",
-        "{projectRoot}/stylelint.config.m?[jt]s",
+        "{projectRoot}/stylelint.config.mjs",
+        "{workspaceRoot}/postcss.config.mjs",
+        "{workspaceRoot}/prettier.config.mjs",
+        "{workspaceRoot}/stylelint.config.mjs",
         {
           "externalDependencies": ["stylelint"]
         }
@@ -100,6 +93,13 @@
       }
     },
     "test": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        "{projectRoot}/vitest.config.mjs",
+        "{workspaceRoot}/vitest.{base,setup,workspace}.mjs"
+      ],
       "options": {
         "passWithNoTests": true
       }
@@ -109,9 +109,10 @@
       "executor": "nx:run-commands",
       "inputs": [
         "default",
-        "^default",
+        "^production",
         "{projectRoot}/*.d.ts",
         "{projectRoot}/tsconfig.json",
+        "{workspaceRoot}/tsconfig.base.json",
         {
           "externalDependencies": ["typescript"]
         }
