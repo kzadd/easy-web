@@ -1,7 +1,7 @@
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
+import { fixupConfigRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
 import nx from '@nx/eslint-plugin'
@@ -74,14 +74,14 @@ const customBlock = {
 const importBlock = {
   files: ['**/*.{js,jsx,mjs,mts,ts,tsx}'],
   plugins: {
-    import: fixupPluginRules(importPlugin),
+    'import-x': importPlugin,
     'simple-import-sort': simpleImportSort,
   },
   rules: {
-    'import/newline-after-import': 'error',
-    'import/no-duplicates': 'error',
-    'import/no-empty-named-blocks': 'error',
-    'import/no-unresolved': 'error',
+    'import-x/newline-after-import': 'error',
+    'import-x/no-duplicates': 'error',
+    'import-x/no-empty-named-blocks': 'error',
+    'import-x/no-unresolved': 'error',
     'simple-import-sort/exports': 'error',
     'simple-import-sort/imports': [
       'error',
