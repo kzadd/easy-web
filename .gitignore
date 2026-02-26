@@ -20,7 +20,7 @@ node_modules/
 !.env.example
 
 # Lock files
-bun.lockb
+bun.lock
 package-lock.json
 yarn.lock
 !pnpm-lock.yaml

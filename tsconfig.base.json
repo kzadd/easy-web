@@ -11,6 +11,7 @@
     "moduleResolution": "bundler",
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+    "paths": {},
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipDefaultLibCheck": true,
@@ -18,7 +19,8 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2022",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "typeRoots": ["node_modules/@types"]
   },
   "exclude": [
     "**/*.spec.ts",

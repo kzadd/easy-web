@@ -9,8 +9,8 @@ const getDirectories = (source) => {
 }
 
 const scopes = {
-  apps: getDirectories('./apps'),
-  libs: getDirectories('./libs'),
+  apps: getDirectories('apps'),
+  libs: getDirectories('libs'),
   workspace: ['ci', 'config', 'deps', 'root'],
 }
 

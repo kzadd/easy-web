@@ -30,6 +30,7 @@
     "**/out/**": true,
     "**/tmp/**": true
   },
+  "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "stylelint.validate": ["css"],
   "typescript.preferences.importModuleSpecifier": "non-relative",
