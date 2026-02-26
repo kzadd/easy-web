@@ -22,7 +22,10 @@
     "production": [
       "default",
       "!{projectRoot}/**/*.md",
-      "!{projectRoot}/**/?(*.)+(spec|test).m?[jt]s?(x)?(.snap)",
+      "!{projectRoot}/**/*.spec.ts.snap",
+      "!{projectRoot}/**/*.spec.{ts,tsx,js,jsx}",
+      "!{projectRoot}/**/*.test.{ts,tsx,js,jsx}",
+      "!{projectRoot}/**/__tests__/**",
       "!{projectRoot}/.prettierignore",
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/prettier.config.mjs",
@@ -98,7 +101,9 @@
         "default",
         "^production",
         "{projectRoot}/vitest.config.mjs",
-        "{workspaceRoot}/vitest.{base,setup,workspace}.mjs"
+        "{workspaceRoot}/vitest.base.mjs",
+        "{workspaceRoot}/vitest.setup.mjs",
+        "{workspaceRoot}/vitest.workspace.mjs"
       ],
       "options": {
         "passWithNoTests": true

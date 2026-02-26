@@ -20,7 +20,7 @@
     "strict": true,
     "target": "es2022",
     "verbatimModuleSyntax": true,
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"]
   },
   "exclude": [
     "**/*.spec.ts",

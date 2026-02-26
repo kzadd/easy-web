@@ -5,6 +5,7 @@ import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
 import nx from '@nx/eslint-plugin'
+import { defineConfig, globalIgnores as globalIgnoresConfig } from 'eslint/config'
 import prettier from 'eslint-config-prettier/flat'
 import importPlugin from 'eslint-plugin-import'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
@@ -17,26 +18,24 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
 })
 
-const globalIgnores = {
-  ignores: [
-    '**/*.log',
-    '**/*.tsbuildinfo',
-    '**/.cache/**',
-    '**/.next/**',
-    '**/.nx/**',
-    '**/.swc/**',
-    '**/.vercel/**',
-    '**/.vitest/**',
-    '**/build/**',
-    '**/coverage/**',
-    '**/dist/**',
-    '**/node_modules/**',
-    '**/out-tsc/**',
-    '**/out/**',
-    '**/tmp/**',
-    '**/vitest.config.*.timestamp*',
-  ],
-}
+const globalIgnores = globalIgnoresConfig([
+  '**/*.log',
+  '**/*.tsbuildinfo',
+  '**/.cache/**',
+  '**/.next/**',
+  '**/.nx/**',
+  '**/.swc/**',
+  '**/.vercel/**',
+  '**/.vitest/**',
+  '**/build/**',
+  '**/coverage/**',
+  '**/dist/**',
+  '**/node_modules/**',
+  '**/out-tsc/**',
+  '**/out/**',
+  '**/tmp/**',
+  '**/vitest.config.*.timestamp*',
+])
 
 const customBlock = {
   files: ['**/*.{js,jsx,mjs,mts,ts,tsx}'],
@@ -80,6 +79,9 @@ const importBlock = {
   },
   rules: {
     'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
+    'import/no-empty-named-blocks': 'error',
+    'import/no-unresolved': 'error',
     'simple-import-sort/exports': 'error',
     'simple-import-sort/imports': [
       'error',
@@ -94,6 +96,15 @@ const importBlock = {
         ],
       },
     ],
+  },
+  settings: {
+    'import/resolver': {
+      node: true,
+      typescript: {
+        alwaysTryTypes: true,
+        project: './tsconfig.base.json',
+      },
+    },
   },
 }
 
@@ -143,10 +154,10 @@ const nxBoundariesBlock = {
       'error',
       {
         allow: [
-          'eslint.config.mjs',
-          'postcss.config.mjs',
-          'stylelint.config.mjs',
-          'vitest.base.mjs',
+          './eslint.config.mjs',
+          './postcss.config.mjs',
+          './stylelint.config.mjs',
+          './vitest.base.mjs',
         ],
         depConstraints: [
           {
@@ -188,7 +199,7 @@ const typescriptBlock = {
   },
 }
 
-const eslintConfig = [
+const eslintConfig = defineConfig([
   globalIgnores,
   ...nx.configs['flat/base'],
   ...nx.configs['flat/javascript'],
@@ -199,6 +210,6 @@ const eslintConfig = [
   nxBoundariesBlock,
   customBlock,
   prettier,
-]
+])
 
 export default eslintConfig

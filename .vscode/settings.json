@@ -24,6 +24,7 @@
     "**/.git/objects/**": true,
     "**/.swc/**": true,
     "**/build/**": true,
+    "**/coverage/**": true,
     "**/dist/**": true,
     "**/node_modules/**": true,
     "**/out-tsc/**": true,

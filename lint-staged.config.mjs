@@ -2,6 +2,9 @@ const eslint = 'eslint --fix --cache --cache-location .cache/eslint/.eslintcache
 const prettier = 'prettier --write --cache --cache-location .cache/prettier/.prettiercache'
 const stylelint = 'stylelint --fix --cache --cache-location .cache/stylelint/.stylelintcache'
 
+/**
+ * @type {import('lint-staged').Configuration}
+ */
 const lintStagedConfig = {
   '**/*.{js,jsx,mjs,mts,ts,tsx}': [eslint, prettier],
   '**/*.{json,md,yaml,yml}': [prettier],

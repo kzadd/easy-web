@@ -8,10 +8,7 @@ import { defineConfig } from 'vitest/config'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-/**
- * @type {import('vitest/config')}
- */
-const vitestConfig = {
+const vitestConfig = defineConfig({
   plugins: [nxViteTsPaths(), react()],
   test: {
     coverage: {
@@ -31,6 +28,6 @@ const vitestConfig = {
     reporters: ['default'],
     setupFiles: [resolve(__dirname, 'vitest.setup.mjs')],
   },
-}
+})
 
-export default defineConfig(vitestConfig)
+export default vitestConfig
