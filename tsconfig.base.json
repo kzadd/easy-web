@@ -19,29 +19,21 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2022",
-    "verbatimModuleSyntax": true,
-    "typeRoots": ["./node_modules/@types"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "verbatimModuleSyntax": true
   },
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.tsbuildinfo",
     ".cache",
     ".next",
     ".nx",
     ".swc",
     ".vercel",
     ".vitest",
-    "@testing-library/jest-dom",
     "build",
     "coverage",
     "dist",
     "node_modules",
     "out",
-    "out-tsc",
-    "vitest.config.*.timestamp*",
-    "vitest/globals"
+    "out-tsc"
   ]
 }

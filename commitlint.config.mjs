@@ -8,15 +8,17 @@ const getDirectories = (source) => {
     .map((dirent) => dirent.name)
 }
 
-const scopes = {
-  apps: getDirectories('apps'),
-  libs: getDirectories('libs'),
-  workspace: ['ci', 'config', 'deps', 'root'],
-}
+const apps = getDirectories('apps')
+const libs = getDirectories('libs')
 
-const allScopes = Object.entries(scopes).flatMap(([group, scopes]) =>
-  scopes.map((scope) => `${group}:${scope}`),
-)
+const allScopes = [
+  ...apps.map((name) => `apps:${name}`),
+  ...libs.map((name) => `libs:${name}`),
+  'workspace:ci',
+  'workspace:config',
+  'workspace:deps',
+  'workspace:root',
+]
 
 /**
  * @type {import('@commitlint/types').UserConfig}

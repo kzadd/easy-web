@@ -6,6 +6,8 @@ const vitestConfig = defineConfig({
   plugins: [nxViteTsPaths(), react()],
   test: {
     coverage: {
+      exclude: ['**/*.d.ts', '**/*.spec.{ts,tsx}', '**/*.test.{ts,tsx}'],
+      include: ['apps/**/*.{ts,tsx}', 'libs/**/*.{ts,tsx}'],
       provider: 'v8',
       reporter: ['html', 'json', 'text'],
     },

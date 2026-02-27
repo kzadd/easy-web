@@ -4,7 +4,9 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "firsttris.vscode-jest-runner",
-    "usernamehw.errorlens"
+    "redhat.vscode-yaml",
+    "stylelint.vscode-stylelint",
+    "usernamehw.errorlens",
+    "vitest.explorer"
   ]
 }

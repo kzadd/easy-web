@@ -1,16 +1,18 @@
 {
   "editor.codeActionsOnSave": {
-    "source.addMissingImports": "always",
-    "source.fixAll": "always",
-    "source.fixAll.eslint": "always",
-    "source.fixAll.stylelint": "always"
+    "source.addMissingImports": "explicit",
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.linkedEditing": true,
+  "editor.stickyScroll.enabled": true,
   "editor.tabSize": 2,
+  "explorer.compactFolders": false,
   "files.associations": {
     ".browserslistrc": "shellscript",
     "commit-msg": "shellscript",
@@ -33,6 +35,18 @@
   },
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "search.exclude": {
+    "**/.cache/**": true,
+    "**/.git/objects/**": true,
+    "**/.swc/**": true,
+    "**/build/**": true,
+    "**/coverage/**": true,
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/out-tsc/**": true,
+    "**/out/**": true,
+    "**/tmp/**": true
+  },
   "stylelint.validate": ["css"],
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.updateImportsOnFileMove.enabled": "always"

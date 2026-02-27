@@ -1,3 +1,19 @@
+# Assets
+**/*.gif
+**/*.ico
+**/*.jpeg
+**/*.jpg
+**/*.mp4
+**/*.otf
+**/*.pdf
+**/*.png
+**/*.svg
+**/*.ttf
+**/*.webm
+**/*.webp
+**/*.woff
+**/*.woff2
+
 # Build
 *.tsbuildinfo
 build/

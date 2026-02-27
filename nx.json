@@ -80,6 +80,7 @@
       "inputs": [
         "default",
         "^default",
+        "{projectRoot}/postcss.config.mjs",
         "{projectRoot}/stylelint.config.mjs",
         "{workspaceRoot}/postcss.config.mjs",
         "{workspaceRoot}/prettier.config.mjs",
@@ -115,6 +116,8 @@
         "^production",
         "{projectRoot}/*.d.ts",
         "{projectRoot}/tsconfig.json",
+        "{projectRoot}/tsconfig.spec.json",
+        "{workspaceRoot}/*.d.ts",
         "{workspaceRoot}/tsconfig.base.json",
         {
           "externalDependencies": ["typescript"]

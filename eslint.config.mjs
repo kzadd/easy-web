@@ -125,6 +125,7 @@ const nextReactBlock = [
       },
     ],
     'react/jsx-no-duplicate-props': 'error',
+    'react/jsx-no-useless-fragment': 'error',
     'react/jsx-sort-props': [
       'warn',
       {
@@ -135,6 +136,7 @@ const nextReactBlock = [
         shorthandLast: false,
       },
     ],
+    'react/no-array-index-key': 'error',
     'react/self-closing-comp': [
       'error',
       {
@@ -179,6 +181,21 @@ const typescriptBlock = {
       {
         fixStyle: 'inline-type-imports',
         prefer: 'type-imports',
+      },
+    ],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        custom: {
+          match: false,
+          regex: '^I[A-Z]',
+        },
+        format: ['PascalCase'],
+        selector: 'interface',
+      },
+      {
+        format: ['PascalCase'],
+        selector: 'typeLike',
       },
     ],
     '@typescript-eslint/no-explicit-any': 'error',
