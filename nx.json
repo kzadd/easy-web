@@ -22,10 +22,8 @@
     "production": [
       "default",
       "!{projectRoot}/**/*.md",
-      "!{projectRoot}/**/*.spec.ts.snap",
-      "!{projectRoot}/**/*.spec.{ts,tsx,js,jsx}",
-      "!{projectRoot}/**/*.test.{ts,tsx,js,jsx}",
-      "!{projectRoot}/**/__tests__/**",
+      "!{projectRoot}/**/*.spec.{js,jsx,ts,tsx}",
+      "!{projectRoot}/**/*.test.{js,jsx,ts,tsx}",
       "!{projectRoot}/.prettierignore",
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/prettier.config.mjs",

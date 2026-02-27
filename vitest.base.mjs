@@ -1,12 +1,6 @@
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 
 const vitestConfig = defineConfig({
   plugins: [nxViteTsPaths(), react()],
@@ -26,7 +20,7 @@ const vitestConfig = defineConfig({
     ],
     globals: true,
     reporters: ['default'],
-    setupFiles: [resolve(__dirname, 'vitest.setup.mjs')],
+    setupFiles: ['./vitest.setup.mjs'],
   },
 })
 
