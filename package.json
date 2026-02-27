@@ -52,7 +52,6 @@
     "postcss-load-config": "6.0.1",
     "prettier": "3.8.1",
     "prettier-plugin-tailwindcss": "0.7.2",
-    "rimraf": "6.1.3",
     "stylelint": "17.4.0",
     "stylelint-config-standard": "40.0.0",
     "stylelint-order": "7.0.1",
@@ -93,7 +92,6 @@
   "scripts": {
     "ci": "nx reset && nx format:check && pnpm lint:workspace && nx affected -t lint stylelint typecheck test build",
     "ci:all": "nx reset && nx format:check && pnpm lint:workspace && nx run-many -t lint stylelint typecheck test build",
-    "clean": "nx reset && rimraf .cache .coverage .nx node_modules",
     "format": "nx format:write",
     "format:check": "nx format:check",
     "lint": "nx affected -t lint",
